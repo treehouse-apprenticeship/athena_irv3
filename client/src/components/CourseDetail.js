@@ -3,7 +3,8 @@ import ReactMarkdown from 'react-markdown';
 
 export default class CourseDetail extends Component {
   state = {
-    course: null
+    course: null,
+    materialsNeeded: ''
   };
 
   componentDidMount() {
@@ -24,7 +25,7 @@ export default class CourseDetail extends Component {
 
   render() {
     const { context } = this.props;
-    const { course } = this.state;
+    const { course, materialsNeeded } = this.state;
 
     if (course) {
       return (
@@ -69,7 +70,7 @@ export default class CourseDetail extends Component {
                   {course.materialsNeeded &&
                     <li className="course--stats--list--item">
                       <h4>Materials Needed</h4>
-                      <ReactMarkdown source={course.materials} />
+                      <ReactMarkdown source={course.materialsNeeded} />
                     </li>
                   }
                 </ul>
